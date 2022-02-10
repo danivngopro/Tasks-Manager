@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { ValidationError } from 'joi';
-import { logger } from '../logger/logger';
-import { SeverityLevel } from '../logger/severityLevel';
+import { logger } from '../logger';
+import { SeverityLevel } from '../severityLevel';
 import { ApplicationError } from './errors';
 
 export const errorMiddleware = (error: Error, _req: express.Request, res: express.Response, next: express.NextFunction): void => {

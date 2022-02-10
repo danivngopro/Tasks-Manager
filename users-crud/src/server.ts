@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import * as express from 'express';
 import * as http from 'http';
 import * as bodyParser from 'body-parser';
-import * as helmet from 'helmet';
 import * as morgan from 'morgan';
 import { errorMiddleware } from './utils/errors/errorHandler';
 import { logger } from './utils/logger';
@@ -18,7 +18,7 @@ export class Server {
     return new Server();
   }
 
-  public closeServer() {
+  public closeServer(): void {
     this.server.close();
   }
 
@@ -46,7 +46,6 @@ export class Server {
   };
 
   private configurationMiddleware() {
-    this.app.use(helmet());
     this.app.use(morgan('dev'));
     this.app.use(this.setHeaders);
     this.app.use(bodyParser.json());

@@ -1,36 +1,31 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-underscore-dangle */
 import * as mongoose from 'mongoose';
-import { PermissionType, User } from './users.interface';
+import { User } from './users.interface';
 
 const userSchema: mongoose.Schema = new mongoose.Schema({
   firstName: {
     type: String,
+    required: true,
   },
   lastName: {
     type: String,
+    required: true,
   },
-  armyId: {
+  userName: {
     type: String,
     required: true,
     unique: true,
   },
-  permissions: {
-    type: [String],
-    enum: Object.values(PermissionType),
+  email: {
+    type: String,
     required: true,
   },
-  validationQuestions: [{
-    _id: false,
-    questionId: {
-      type: String,
-      required: true,
-    },
-    answer: {
-      type: String,
-      required: true,
-    },
-  }],
+  password: {
+    type: String,
+    required: true,
+  },
+  
   connectedAt: {
     type: Date,
   },
@@ -47,7 +42,7 @@ const userSchema: mongoose.Schema = new mongoose.Schema({
   timestamps: { createdAt: true, updatedAt: false },
 });
 
-userSchema.index({ armyId: 1 });
+userSchema.index({ userName: 1, email: 1 });
 userSchema.index({ firstName: 1, lastName: 1 });
 
 export const UserModel = mongoose.model<User & mongoose.Document>('User', userSchema);
