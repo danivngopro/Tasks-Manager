@@ -42,7 +42,6 @@ const userSchema: mongoose.Schema = new mongoose.Schema({
   timestamps: { createdAt: true, updatedAt: false },
 });
 
-userSchema.index({ username: 1, email: 1 });
 userSchema.index({ firstName: 1, lastName: 1 });
 
 export const UserModel = mongoose.model<User & mongoose.Document>('User', userSchema);

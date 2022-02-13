@@ -13,7 +13,7 @@ export const config = {
       .default('mongodb://localhost:27017')
       .asString(),
     dbName: env.get('USER_DB_NAME')
-      .default('users')
+      .default('users-crud')
       .asString(),
   },
 };
