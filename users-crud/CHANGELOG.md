@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* add forToken flag in update-by-armyId route ([739d4c0](https://gitlab.com/yesodot/selenium/blueomek/users-service/commit/739d4c08b82a25a83552d3107632542034cae2f1))
+* add forToken flag in update-by-username route ([739d4c0](https://gitlab.com/yesodot/selenium/blueomek/users-service/commit/739d4c08b82a25a83552d3107632542034cae2f1))
 
 ### [0.0.6](https://gitlab.com/yesodot/selenium/blueomek/users-service/compare/v0.0.5...v0.0.6) (2021-06-29)
 

@@ -8,13 +8,13 @@ export class UserManager {
     return UserRepository.create(newUser);
   }
 
-  static async updateByArmyId(
-    armyId: string,
+  static async updateByUsername(
+    username: string,
     updatedData: Partial<User>,
     query: { forToken: boolean },
   ): Promise<User> {
-    const user = await UserRepository.updateByArmyId(
-      armyId,
+    const user = await UserRepository.updateByusername(
+      username,
       updatedData,
       query.forToken,
     );
@@ -22,18 +22,17 @@ export class UserManager {
     return user;
   }
 
-  static async getUserByArmyId(armyId: string): Promise<User> {
-    const user = await UserRepository.getUserByArmyId(armyId);
+  static async getUserByUsername(username: string): Promise<User> {
+    const user = await UserRepository.getUserByusername(username);
     if (!user) throw new UserNotFound();
     return user;
   }
 
-  static async validateQuestion(
-    armyId: string,
-    questionId: string,
-    answer: string,
-  ): Promise<boolean> {
-    const user = await UserRepository.getUserByArmyId(armyId);
-    return user!.validationQuestions.some((question) => question.questionId === questionId && question.answer === answer);
+  static async deleteByUsername(
+    username: string,
+  ): Promise<User> {
+    const user = await UserRepository.deleteUserByUsername(username);
+    if (!user) throw new UserNotFound();
+    return user; 
   }
 }

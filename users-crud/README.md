@@ -33,8 +33,8 @@ npm start
 | METHOD | ENDPOINT                                                         | DESCRIPTION                                       |
 | ------ | :----------------------------------------------------------------| :----------------------------------------------    |
 | Post   |  create                                                          | create a user                                          |
-| Put    |  updateByArmyId                                                  | update a user                                      |
-| Get    |  getByArmyId                                                     | get by army id                                     |
+| Put    |  updateByusername                                                  | update a user                                      |
+| Get    |  getByusername                                                     | get by army id                                     |
 | Get    |  validateQuestion                                                | get auth by army id                                     |
 
 **-------------------------------------------------------------------------------------------------------------------------------------**
@@ -43,7 +43,7 @@ npm start
 post a user
 #### Paramters
 | Name   | Type   | Description                                                    |
-| armyId  | string | army id of the user  |
+| username  | string | army id of the user  |
 | firstName  | string | first name of the user  |
 | lastName  | string | lastname of the user  |
 | permissions  | permissionType | basic, mada or segel  |
@@ -53,7 +53,7 @@ post a user
 ```typescript
 "status": "200 OK"
 {
-    "armyId": "8599492",
+    "username": "8599492",
     "firstName": "string",
     "lastName": "string",
     "permissions": ["QUESTION1"],
@@ -64,17 +64,17 @@ post a user
 }
 ```
 **-----------------------------------------------------------------------------------------------------------------------------------------**
-### getByArmyId
+### getByusername
 get a user
 #### Paramters
 | Name   | Type   | Description                                                    |
-| armyid  | string | the armyid of the user in the params |
+| username  | string | the username of the user in the params |
 
 #### Response
 ```typescript
 "status": "200 OK"
 {
-    "armyId": "8599492",
+    "username": "8599492",
     "firstName": "string",
     "lastName": "string",
     "permissions": ["QUESTION1"],
@@ -86,11 +86,11 @@ get a user
 ```
 **-----------------------------------------------------------------------------------------------------------------------------------------**
 
-### updateByArmyId
+### updateByusername
 update a user
 #### Paramters
 | Name   | Type   | Description                                                    |
-| armyId  | string | army id of the user  |
+| username  | string | army id of the user  |
 | firstName  | string | first name of the user  |
 | lastName  | string | lastname of the user  |
 | permissions  | permissionType | basic, mada or segel  |
@@ -100,7 +100,7 @@ update a user
 ```typescript
 "status": "200 OK"
 {
-    "armyId": "8599492",
+    "username": "8599492",
     "firstName": "string",
     "lastName": "string",
     "permissions": ["QUESTION1"],
@@ -115,7 +115,7 @@ update a user
 authenticate the question and answer of a user
 #### Paramters
 | Name   | Type   | Description                                                    |
-| armyId  | string | army id of the user  |
+| username  | string | army id of the user  |
 | question  | string | question  of the user  |
 | answer  | string | answer of the user  |
 

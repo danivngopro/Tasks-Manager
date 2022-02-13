@@ -6,11 +6,15 @@ export class UserRepository {
     return UserModel.create(newUser);
   }
   
-  static updateByArmyId(armyId: string, updatedData: Partial<User>, forToken: boolean): Promise<User | null> {
-    return UserModel.findOneAndUpdate({ armyId }, updatedData, { new: true }).select(forToken && { armyId: 1 }).exec();
+  static updateByusername(username: string, updatedData: Partial<User>, forToken: boolean): Promise<User | null> {
+    return UserModel.findOneAndUpdate({ username }, updatedData, { new: true }).select(forToken && { username: 1 }).exec();
   }
 
-  static getUserByArmyId(armyId: string): Promise<User | null> {
-    return UserModel.findOne({ armyId }).exec();
+  static getUserByusername(username: string): Promise<User | null> {
+    return UserModel.findOne({ username }).exec();
+  }
+
+  static deleteUserByUsername(username: string): Promise<User | null> {
+    return UserModel.findOneAndDelete({ username }).exec();
   }
 }

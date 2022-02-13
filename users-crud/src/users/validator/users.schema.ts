@@ -1,24 +1,11 @@
 import * as Joi from 'joi';
-import { PermissionType } from '../users.interface';
 
-const armyIdSchema = {
-  armyId: Joi.string().regex(/^\d+$/).required(),
-};
-
-const questionSchema = Joi.object({
-  questionId: Joi.string().required(),
-  answer: Joi.string().required(),
-});
-
-export const UserSchema = Joi.object({
-  armyId: Joi.string().regex(/^\d+$/).required(),
+const UserSchema = Joi.object({
   firstName: Joi.string().default(''),
   lastName: Joi.string().default(''),
-  permissions: Joi.array().items(Joi.string().valid(...Object.values(PermissionType))),
-  validationQuestions: Joi.array().items({
-    questionId: Joi.string().required(),
-    answer: Joi.string().required(),
-  }).length(3),
+  username: Joi.string().default(''),
+  email: Joi.string().default(''),
+  password: Joi.string().default(''),
 });
 
 export const createUserReqSchema = Joi.object({
@@ -27,20 +14,18 @@ export const createUserReqSchema = Joi.object({
   params: {},
 });
 
-export const getByArmyIdReqSchema = Joi.object({
-  body: {},
-  query: {},
-  params: armyIdSchema,
-});
+const usernameSchema = {
+  username: Joi.string().required().min(3).max(12),
+};
 
-export const validateQuestionReqScehma = Joi.object({
-  body: {},
-  query: questionSchema,
-  params: armyIdSchema,
-});
-
-export const updateByArmyIdReqSchema = Joi.object({
+export const updateByUserNameSchema = Joi.object({
   body: UserSchema,
   query: {},
-  params: armyIdSchema,
+  params: usernameSchema,
+});
+
+export const getByUserNameScema = Joi.object({
+  body: {},
+  query: {},
+  params: usernameSchema,
 });

@@ -12,7 +12,7 @@ const userSchema: mongoose.Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userName: {
+  username: {
     type: String,
     required: true,
     unique: true,
@@ -42,7 +42,7 @@ const userSchema: mongoose.Schema = new mongoose.Schema({
   timestamps: { createdAt: true, updatedAt: false },
 });
 
-userSchema.index({ userName: 1, email: 1 });
+userSchema.index({ username: 1, email: 1 });
 userSchema.index({ firstName: 1, lastName: 1 });
 
 export const UserModel = mongoose.model<User & mongoose.Document>('User', userSchema);

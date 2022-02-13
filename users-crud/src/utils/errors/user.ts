@@ -14,8 +14,8 @@ export class IdInvalidError extends UserError {
   }
 }
 /* istanbul ignore next */
-export class ArmyIdInvalidError extends UserError {
-  constructor(message = 'ArmyId is invalid') {
+export class usernameInvalidError extends UserError {
+  constructor(message = 'username is invalid') {
     super(message, 400);
   }
 }

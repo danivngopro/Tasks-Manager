@@ -6,19 +6,17 @@ export class UserController {
     res.json(await UserManager.create(req.body));
   }
 
-  static async updateByArmyId(req: Request, res: Response): Promise<void> {
-    res.json(await UserManager.updateByArmyId(req.params.armyId, req.body, req.query as any));
+  static async updateByUsername(req: Request, res: Response): Promise<void> {
+    res.json(await UserManager.updateByUsername(req.params.username, req.body, req.query as any));
   }
 
-  static async getByArmyId(req: Request, res: Response): Promise<void> {
-    const { armyId } = req.params;
-    res.json(await UserManager.getUserByArmyId(armyId));
+  static async getByUsername(req: Request, res: Response): Promise<void> {
+    const { username } = req.params;
+    res.json(await UserManager.getUserByUsername(username));
   }
 
-  static async validateQuestion(req: Request, res: Response): Promise<void> {
-    const { armyId } = req.params;
-    const questionId = req.query.questionId as string;
-    const answer = req.query.answer as string;
-    res.json(await UserManager.validateQuestion(armyId, questionId, answer));
+  static async deleteByUsername(req: Request, res: Response): Promise<void> {
+    const { username } = req.params;
+    res.json(await UserManager.deleteByUsername(username));
   }
 }

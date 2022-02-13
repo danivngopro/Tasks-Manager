@@ -4,16 +4,15 @@ import { ValidateRequest } from '../utils/joi';
 import { UserController } from './users.controller';
 import {
   createUserReqSchema,
-  updateByArmyIdReqSchema,
-  getByArmyIdReqSchema,
-  validateQuestionReqScehma,
+  getByUserNameScema,
+  updateByUserNameSchema,
 } from './validator/users.schema';
 
 const UserRouter: Router = Router();
 
 UserRouter.post('/', ValidateRequest(createUserReqSchema), wrapAsync(UserController.create));
-UserRouter.put('/army-id/:armyId', ValidateRequest(updateByArmyIdReqSchema), wrapAsync(UserController.updateByArmyId));
-UserRouter.get('/army-id/:armyId', ValidateRequest(getByArmyIdReqSchema), wrapAsync(UserController.getByArmyId));
-UserRouter.get('/validate-question/:armyId', ValidateRequest(validateQuestionReqScehma), wrapAsync(UserController.validateQuestion));
+UserRouter.get('/username/:username', ValidateRequest(getByUserNameScema), wrapAsync(UserController.getByUsername));
+UserRouter.put('/username/:username', ValidateRequest(updateByUserNameSchema), wrapAsync(UserController.updateByUsername));
+UserRouter.delete('/username/:username', ValidateRequest(getByUserNameScema), wrapAsync(UserController.deleteByUsername));
 
 export { UserRouter };
