@@ -13,14 +13,9 @@ export class IdInvalidError extends SubTaskError {
     super(message, 400);
   }
 }
-/* istanbul ignore next */
-export class SubTasknameInvalidError extends SubTaskError {
-  constructor(message = 'subTaskname is invalid') {
-    super(message, 400);
-  }
-}
+
 export class SubTaskNotFound extends SubTaskError {
   constructor() {
-    super('subTask not found', 404);
+    super('SubTask not found', 404);
   }
 }

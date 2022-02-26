@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { UserRouter } from './users/users.router';
+import { subTaskRouter } from './subTasks/subTasks.router';
 
 const AppRouter: Router = Router();
 
-AppRouter.use('/api/users', UserRouter);
+AppRouter.use('/api/subTasks', subTaskRouter);
 
 AppRouter.use('/isalive', (_req, res) => {
   res.status(200).send('alive');
