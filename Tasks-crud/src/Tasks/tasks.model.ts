@@ -1,10 +1,15 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-underscore-dangle */
 import * as mongoose from 'mongoose';
-import { SubTask } from './subTasks.interface';
+import { Task } from './tasks.interface';
 
-const subTaskschema: mongoose.Schema = new mongoose.Schema({
+const taskschema: mongoose.Schema = new mongoose.Schema({
   content: {
+    type: String,
+    required: true,
+  },
+
+  taskName: {
     type: String,
     required: true,
   },
@@ -25,4 +30,4 @@ const subTaskschema: mongoose.Schema = new mongoose.Schema({
   timestamps: { createdAt: true, updatedAt: false },
 });
 
-export const subTaskModel = mongoose.model<SubTask & mongoose.Document>('SubTask', subTaskschema);
+export const taskModel = mongoose.model<Task & mongoose.Document>('Task', taskschema);
