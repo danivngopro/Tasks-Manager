@@ -20,6 +20,12 @@ export class CompositorNotFound extends CompositorError {
   }
 }
 
+export class PostTypeError extends CompositorError {
+  constructor() {
+    super('postType must be between 1 and 4', 404);
+  }
+}
+
 export class HeirarchyNotFound extends CompositorError {
   constructor() {
     super('Heirarchy not found', 404);
