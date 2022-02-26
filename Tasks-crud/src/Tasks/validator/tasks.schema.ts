@@ -1,9 +1,9 @@
 import * as Joi from 'joi-oid';
 
-
 const taskschema = Joi.object({
   taskName: Joi.string().default(''),
   content: Joi.string().default(''),
+  subTasks: Joi.array().items(Joi.objectId()),
 });
 
 export const createtaskReqSchema = Joi.object({

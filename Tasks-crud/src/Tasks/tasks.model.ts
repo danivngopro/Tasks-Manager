@@ -12,6 +12,12 @@ const taskschema: mongoose.Schema = new mongoose.Schema({
   taskName: {
     type: String,
     required: true,
+    unique: true,
+  },
+  
+  subTasks: {
+    type: Array,
+    required: true,
   },
   
   connectedAt: {

@@ -17,4 +17,8 @@ export class TaskRepository {
   static deletetaskByid(id: string): Promise<Task | null> {
     return taskModel.findOneAndDelete({ id }).exec();
   }
+
+  static getHierarchy(id: string): Promise<Task | null> {
+    return taskModel.findOne({ id }).exec();
+  }
 }

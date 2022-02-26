@@ -12,6 +12,7 @@ const tasksRouter: Router = Router();
 
 tasksRouter.post('/', ValidateRequest(createtaskReqSchema), wrapAsync(TaskController.create));
 tasksRouter.get('/id/:id', ValidateRequest(getBytaskNameScema), wrapAsync(TaskController.getByid));
+tasksRouter.get('/getHierarchy/id/:id', ValidateRequest(getBytaskNameScema), wrapAsync(TaskController.getHierarchy));
 tasksRouter.put('/id/:id', ValidateRequest(updateBytaskNameSchema), wrapAsync(TaskController.updateByid));
 tasksRouter.delete('/id/:id', ValidateRequest(getBytaskNameScema), wrapAsync(TaskController.deleteByid));
 

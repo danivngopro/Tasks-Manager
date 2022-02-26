@@ -19,3 +19,9 @@ export class TaskNotFound extends TaskError {
     super('Task not found', 404);
   }
 }
+
+export class HeirarchyNotFound extends TaskError {
+  constructor() {
+    super('Heirarchy not found', 404);
+  }
+}

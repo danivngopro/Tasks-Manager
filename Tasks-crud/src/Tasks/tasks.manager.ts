@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { TaskRepository } from './tasks.repository';
-import { TaskNotFound } from '../utils/errors/task';
+import { HeirarchyNotFound, TaskNotFound } from '../utils/errors/task';
 import { Task } from './tasks.interface';
 
 export class TaskManager {
@@ -34,5 +34,11 @@ export class TaskManager {
     const task = await TaskRepository.deletetaskByid(id);
     if (!task) throw new TaskNotFound();
     return task; 
+  }
+
+  static async getHierarchy(id: string): Promise<Array<string>> {
+    const task = await TaskRepository.getHierarchy(id);
+    if (!task) throw new HeirarchyNotFound();
+    return task.subTasks;
   }
 }

@@ -24,6 +24,7 @@
   "author": "Daniel Ventura",
   "license": "ISC",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "body-parser": "^1.19.1",
     "dotenv": "^16.0.0",
     "env-var": "^7.1.1",

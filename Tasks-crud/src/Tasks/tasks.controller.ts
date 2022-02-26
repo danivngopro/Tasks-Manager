@@ -19,4 +19,9 @@ export class TaskController {
     const { id } = req.params;
     res.json(await TaskManager.deleteByid(id));
   }
+
+  static async getHierarchy(req: Request, res: Response): Promise<void> {
+    const { id } = req.params;
+    res.json(await TaskManager.getHierarchy(id));
+  }
 }
