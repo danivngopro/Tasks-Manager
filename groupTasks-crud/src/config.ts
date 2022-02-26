@@ -6,7 +6,7 @@ dotenv.config();
 export const config = {
   server: {
     name: 'groupTask-crud',
-    port: env.get('APPLICATION_PORT').default(3000).asPortNumber(),
+    port: env.get('APPLICATION_PORT').default(3004).asPortNumber(),
   },
   db: {
     connectionString: env.get('DB_CONNECTION_URL')

@@ -4,6 +4,6 @@ import { CompositorController } from './compositor.controller';
 
 const compositorRouter: Router = Router();
 
-compositorRouter.post('/', wrapAsync(CompositorController.create));
+compositorRouter.post('/postType:postType', wrapAsync(CompositorController.create));
 
 export { compositorRouter as compositorRouter };
