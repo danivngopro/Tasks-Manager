@@ -14,7 +14,7 @@ export class IdInvalidError extends UserError {
   }
 }
 /* istanbul ignore next */
-export class usernameInvalidError extends UserError {
+export class UsernameInvalidError extends UserError {
   constructor(message = 'username is invalid') {
     super(message, 400);
   }
