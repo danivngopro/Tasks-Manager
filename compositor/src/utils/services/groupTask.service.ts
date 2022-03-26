@@ -3,10 +3,10 @@ import { GroupTask } from '../../compositor/compositor.interface';
 
 
 export default class GroupTaskService {
-  static api = 'localhost:3001/api/users';
+  static api = 'http://grouptask-service:3004/api/users';
 
-  static create(headers: any, body: Record<string, any>): Promise<GroupTask> {
-    return axios.post(`${GroupTaskService.api}`, headers, body);
+  static async create(headers: any, body: Record<string, any>): Promise<GroupTask> {
+    return axios.post(`${GroupTaskService.api}`, body, headers).then(res => res.data);
   }
 
   //   static createById(headers: any, id: string): Promise<User> {

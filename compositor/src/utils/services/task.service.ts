@@ -3,10 +3,10 @@ import { Task } from '../../compositor/compositor.interface';
 
 
 export default class TaskService {
-  static api = 'localhost:3001/api/users';
+  static api = 'http://tasks-service:3003/api/users';
 
-  static create(headers: any, body: Record<string, any>): Promise<Task> {
-    return axios.post(`${TaskService.api}`, headers, body);
+  static async create(headers: any, body: Record<string, any>): Promise<Task> {
+    return axios.post(`${TaskService.api}`, body, headers).then(res => res.data);
   }
 
   //   static createById(headers: any, id: string): Promise<User> {

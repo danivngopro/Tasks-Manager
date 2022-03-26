@@ -3,10 +3,10 @@ import { SubTask } from '../../compositor/compositor.interface';
 
 
 export default class SubTaskService {
-  static api = 'localhost:3001/api/users';
+  static api = 'http://subtasks-service:3002/api/users';
 
-  static create(headers: any, body: Record<string, any>): Promise<SubTask> {
-    return axios.post(`${SubTaskService.api}`, headers, body);
+  static async create(headers: any, body: Record<string, any>): Promise<SubTask> {
+    return axios.post(`${SubTaskService.api}`, body, headers).then(res => res.data);
   }
 
   //   static createById(headers: any, id: string): Promise<User> {
