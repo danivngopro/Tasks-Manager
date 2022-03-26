@@ -1,6 +1,6 @@
 version: "3"
 services:
-  task-compositor-service:
+  task-compositor:
     build: ./compositor/
     environment: 
         DB_CONNECTION_URL: mongodb://mongo:27017
@@ -9,8 +9,11 @@ services:
       - "3005:3005"
     depends_on: 
       - mongo
+    links:
+      - mongo
 
   users-service:
+    container_name: users-crud
     build: ./users-crud/
     environment: 
         DB_CONNECTION_URL: mongodb://mongo:27017
@@ -19,8 +22,11 @@ services:
       - "3001:3001"
     depends_on: 
       - mongo
+    links:
+      - mongo
 
   tasks-service:
+    container_name: tasks-crud
     build: ./tasks-crud/
     environment: 
         DB_CONNECTION_URL: mongodb://mongo:27017
@@ -29,8 +35,11 @@ services:
       - "3003:3003"
     depends_on: 
       - mongo
+    links:
+      - mongo
 
   subtasks-service:
+    container_name: subtasks-crud
     build: ./subTasks-crud/
     environment: 
         DB_CONNECTION_URL: mongodb://mongo:27017
@@ -39,8 +48,11 @@ services:
       - "3002:3002"
     depends_on: 
       - mongo
+    links:
+      - mongo
 
   grouptask-service:
+    container_name: grouptasks-crud
     build: ./groupTasks-crud/
     environment: 
         DB_CONNECTION_URL: mongodb://mongo:27017
@@ -48,6 +60,8 @@ services:
     ports:
       - "3004:3004"
     depends_on: 
+      - mongo
+    links:
       - mongo
 
   mongo:

@@ -2,21 +2,10 @@ import axios from "axios";
 import { User } from "../../compositor/compositor.interface";
 
 export default class UserService {
-  static api = "http://localhost:3001/api/users/";
+  static api = "http://users-crud:3001/api/users/";
 
-  static async create(_headers: any, _body: Record<string, any>): Promise<User> {
-    return await axios
-      .post("http://localhost:3001/api/users/", {
-        firstName: "string",
-        lastName: "string",
-        username: "string",
-        email: "string@g.c",
-        password: "string",
-      })
-      .then((res) => res.data)
-      .catch(function (error) {
-        console.log(error);
-      });
+  static async create(headers: any, body: Record<string, any>): Promise<User> {
+    return axios.post(`${UserService.api}`, body, headers).then(res => res.data);
   }
 
   //   static createById(headers: any, id: string): Promise<User> {
