@@ -7,3 +7,4 @@ export class CompositorController {
     res.json(await CompositorManager.create(req.body, parseInt(postType)));
   }
 }
+//xd
