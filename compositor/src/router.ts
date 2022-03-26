@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { compositorRouter } from './Compositors/compositor.router';
+import { compositorRouter } from './compositor/compositor.router';
 
 const AppRouter: Router = Router();
 

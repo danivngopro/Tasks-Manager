@@ -1,18 +1,22 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PostTypeError } from '../utils/errors/compositor';
+import GroupTaskService from '../utils/services/groupTask.service';
+import SubTaskService from '../utils/services/subtask.service';
+import TaskService from '../utils/services/task.service';
 import UserService from '../utils/services/user.service';
 
 export class CompositorManager {
-  static async create(newBody, postType): Promise<any> {
+  static async create(newBody, postType: Number): Promise<any> {
+    console.log(postType)
     switch (postType) {
       case 1:
+        console.log('trying to create new user');
         return UserService.create({}, newBody);
       case 2:
-        return UserService.create({}, newBody);
+        return GroupTaskService.create({}, newBody);
       case 3:
-        return UserService.create({}, newBody);
+        return TaskService.create({}, newBody);
       case 4:
-        return UserService.create({}, newBody);
+        return SubTaskService.create({}, newBody);
       default:
         throw new PostTypeError();
     }

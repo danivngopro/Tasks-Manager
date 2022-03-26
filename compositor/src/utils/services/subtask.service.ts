@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { User } from '../../compositor/compositor.interface';
+import { SubTask } from '../../compositor/compositor.interface';
 
 
-export default class UserService {
+export default class SubTaskService {
   static api = 'localhost:3001/api/users';
 
-  static create(headers: any, body: Record<string, any>): Promise<User> {
-    return axios.post(`${UserService.api}`, headers, body);
+  static create(headers: any, body: Record<string, any>): Promise<SubTask> {
+    return axios.post(`${SubTaskService.api}`, headers, body);
   }
 
   //   static createById(headers: any, id: string): Promise<User> {
